@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<head>
+<!-- 要改最后面的表单  -->
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>面试题</title><link rel="icon" href="logo.png" type="image/x-icon" />
+<script src="jquery.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script>
+  if ( top !== self ) top.location.replace( self.location.href );
+  
+ $(document).ready(function() {
+  $('#tzf').submit(function(e) {
+      e.preventDefault();
+      var xhr = new XMLHttpRequest();
+  xhr.open('POST', '1.php', true);
+  xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        if(this.responseText=="error")
+      {alert("错误")}
+      else
+          {document.getElementById('st').innerHTML = this.responseText;//成功时为1
+        }
+      }
+  };
+  xhr.send(new FormData(this));
+  });//第一个表单请求异步处理
+
+  $('#wcf').submit(function(e) {
+      e.preventDefault();
+      var xhr = new XMLHttpRequest();
+  xhr.open('POST', '1.php', true);
+  xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        if(this.responseText=="error")
+      {alert("错误")}
+      else
+          {document.getElementById('st2').innerHTML = this.responseText;//成功时为1
+        }
+      }
+  };
+  xhr.send(new FormData(this));
+  });//第二个
+});
+
+
+var zxs=0;//onlaod内程序顺序计数
+  window.onload = function() {
+//xunhuanf=setInterval(xunhuantihuan, 2000);
+if(zxs==0){cl1_2=setTimeout(cl,2000,'1page'); zxs++;}
+cl2_3=setTimeout(cl,5000,'2page');
+}
+function cl(page){
+   
+    document.getElementById(page).click();
+    //if(zxs==3){zxs=0;}//重置程序计数
+}
+
+/*
+  var bjss=0;//背景列表计时器（需要的话
+  
+  var bjs=0;//cl程序内计数
+  var bjz=0;
+  var playlistss=["9b30.jpg", "bbf.jpg", "13b.jpg", "9b30.jpg", "592b.jpg", "ad50.jpg", "bbf.jpg", "13b.jpg"];
+
+ function replaceBackground(elementId, newImageUrl) {
+    var element = document.getElementById(elementId);
+    if (element) {
+        element.style.backgroundImage = 'url(' + newImageUrl + ')';
+    }
+}
+function bjth()
+{
+  bjs = (bjs + 1) % playlistss.length;
+    var newimage = playlistss[bjs];
+      replaceBackground('bj', newimage);
+}
+
+ */
+</script>
+<style>
+.center {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+height: 90vh;
+}
+
+        
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.6;
+            }
+        }
+        
+@media (max-width: 768px) {
+  body {
+    font-size: 2rem;
+    line-height: 1.4;
+  }
+}
+        body{background-attachment: fixed; overflow: hidden;
+            
+
+  font-size:1rem;
+  line-height: 1; 
+}
+
+h1 {
+  background-image: url('33.png');
+background-size : 250px;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-color: white;
+}
+.login {
+  backdrop-filter: blur(5px);
+}
+   
+
+        .custom-mouse {
+            position: relative;
+        } 
+   
+
+.flip-container {
+    perspective: 1000px;
+    width: 100px;
+    height: 200px;
+    position: relative;
+    margin: 50px auto;
+}
+ 
+.flip-container .flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+ 
+.flip-container .front, .flip-container .back {
+    backface-visibility: hidden;
+    position: absolute;
+
+
+}
+ 
+.flip-container .front {
+    background-size: cover;
+
+}
+ 
+.flip-container .back {
+ margin-left: -120px;
+top: -25px;
+    background-size: cover;
+    transform: rotateY(180deg);
+}
+ 
+.flip-container.flipped .flipper {
+    transform: rotateY(180deg);
+}
+   </style>
+</head>
+<body>
+<script>
+
+ document.onmousemove = function(e) {
+ var x = e.clientX / window.innerWidth;
+ }
+ </script>
+ <div id="mouse-effect"></div>
+<style type="text/css">
+
+ #mouse-effect {
+    position: fixed;
+    
+            display: block;
+            width: 20px;
+            height: 20px;
+
+            background-image:url(logo.png); 
+background-size : 22px;
+pointer-events: none;
+z-index: 999;
+position:absolute;
+            
+            top:20px;
+            left:12px;
+
+            animation: customAnimation 1.5s infinite ease-in-out;
+        }
+        
+        @keyframes customAnimation {
+            0% { transform: scale(1.2); opacity: 1; }
+            50% { transform: scale(5); opacity: 0; }
+            100% { transform: scale(1.2); opacity: 1; }
+        }
+.section {
+            height: 100vh;
+            display: flex;  
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid #ccc; 
+        }
+
+ </style>
+<script type="text/javascript">
+document.addEventListener('mousemove', function(event) {
+    var mouseEffect = document.getElementById("mouse-effect");
+    mouseEffect.style.top = event.clientY + 'px';
+    mouseEffect.style.left = event.clientX + 'px';
+});</script>
+<nav style="position: fixed;">
+        <a id="1page" href="#section1">[1]</a> |
+        <a id="2page" href="#section2">[2]</a> |
+        <a id="3page" href="#section3">[3]</a> |
+        <a id="4page" href="#section4">[4]</a>
+    </nav>
+
+
+    <div id="section1" class="section" style="background-repeat: no-repeat;cursor: none;">
+        
+        
+<div class="center"><!--<button type="button" onclick="suoding()">锁定样式</button>-->
+
+             <img src="logo.png" alt="正面" width="400" height="400">
+        </div>
+</div>
+    <div id="section2" class="section" style=""><div class="xtfd" style="width: 80%;background-color: rgba(89, 248, 192, 0.674);border: 3px solid #000;border-radius: 65px;padding: 10px;height: 90%;top: 5%;">
+      <div style="font-size: 20px;flex-shrink: 1;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+        <p style="color: blue;"># HireWithCode - 面试者挑战项目</p>
+        
+
+欢迎来到 `HireWithCode` 项目！这是一个专为技术面试者设计的真实项目挑战。目前，这个仓库刚刚起步，没有任何代码——只有待实现的功能（TODOs）。你的任务是将这些TODOs转变为实际的代码，提交你的Pull Request（PR）就是你面试的一部分挑战。
+        <br>
+<p style="color: blue;">## 产品功能 TODOs</p>
+产品是一个 Web 网站（PC端、移动端兼容），分为 4 个步骤的页面：<br>
+- [ ] **欢迎语**：Logo + 一句话欢迎语（垂直水平居中，2 秒后自动进入下一页 *面试引导*）`欢迎来到 infist 线上面试环节，期待你的加入！` [logo](./logo.png) <br>
+- [ ] **面试引导**：介绍面试的流程和说明（Markdown 文案展示，需要渲染为富文本样式）[页面文案 markdown](https://raw.githubusercontent.com/infist/HireWithCode/main/README.md)<br>
+- [ ] **接受挑战**：表单，`input`(用户输入自己的 github id) 、`input`(邮箱)、`submit button`(接受挑战)<br>
+- [ ] **完成挑战**：表单，`input`(github 仓库 url)、`input`([Vercel](https://vercel.app/) 在线体验地址)、`submit button`(提交作品)<br>
+
+<p style="color: blue;">## 如何参与？</p>
+
+1. 克隆仓库到你的本地机器。<br>
+2. 按照你对这个产品的理解，自行开发 TODO<br>
+4. 确保你的代码是可以运行的<br>
+5. 完成挑战后，通过Pull Request将你的代码提交给我们。<br>
+6. 在PR中附上你的Vercel在线体验链接。<br>
+<p style="color: rgb(255, 7, 181);">
+> 备注说明：<br>
+> 这个项目的步骤 3、4 是是需要服务端能力的（API + 数据库），如果你不具备全栈的经验，可以考虑使用 [supabase](https://supabase.com/) 作为本项目的服务端（或者仅仅实现前端静态网页）<br>
+</p>
+我们会审查每一个PR，并以此作为面试的一部分。我们期待看到你的创意和技术实力！<br>
+
+祝你好运！<br><br>
+<a href="#section3">继续下一页</a></div></div></div>
+<script>
+$(function() {
+    $("#draggable").draggable(); // 使元素可拖动
+});
+</script>
+        
+    
+
+    <div id="section3" class="section">
+        
+        <form id="tzf">
+            <input id="upgitid" type="text" name="githubid" value="" style="width:150px; height:30px;" placeholder="输入githubid"><br>
+            <input id="upE-mail" type="text" name="E-mail" value="" style="width:150px; height:30px;" placeholder="输入邮箱地址"><br>
+<input id="st1" type="submit" value="接受挑战" ><br>
+</form>提交结果 : 
+<div id="st" style="position: relative;"> 暂未提交</div>
+<a href="#section4" style="position: relative;"> 继续</a>
+        
+    </div>
+    <div id="section4" class="section">
+        <form id="wzf">
+            <input id="upgiturl" type="text" name="githuburl" value="" style="width:150px; height:30px;" placeholder="输入github库地址"><br>
+            <input id="Vercel" type="text" name="Vercel" value="" style="width:150px; height:30px;" placeholder="输入Vercel地址"><br>
+<input id="st1" type="submit" value="完成挑战" >
+</form><br>提交结果 : 
+<div id="st2" style="position: relative;"> 暂未完成</div>
+        <a href="#section1">返回顶部</a>
+    </div>
+
+</body>
+</html>
